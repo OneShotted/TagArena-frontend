@@ -11,7 +11,7 @@ function start() {
   document.getElementById('loginScreen').style.display='none';
   canvas.style.display='block';
 
-  ws = new WebSocket('wss://' + location.hostname + (location.port?':':'') + location.port+'/');
+ws = new WebSocket('wss://tagarena-backend.onrender.com');
   ws.onopen = () => ws.send(JSON.stringify({ type:'join', id, name }));
   ws.onmessage = m => handleMsg(JSON.parse(m.data));
 
